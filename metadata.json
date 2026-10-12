@@ -1,0 +1,6 @@
+{
+  "name": "TOEIC Student Ranking Dashboard",
+  "description": "Professional academic dashboard displaying TOEIC practice exam student rankings, converted scores, photo management, and CSV export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
