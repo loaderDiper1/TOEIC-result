@@ -214,16 +214,6 @@ export default function App() {
           onOpenEditModal={(student) => setEditModalStudent(student)}
           onDeleteStudent={handleDeleteStudent}
         />
-
-        {/* Academic notes / Instructor footer */}
-        <footer className="mt-6 pt-4 border-t border-slate-200 text-slate-400 text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>
-            TOEIC Institutional Practice Evaluation &bull; English Language Academic Dept.
-          </div>
-          <div className="text-[11px] text-slate-400 font-mono">
-            Scores scale: Listening (5–495) + Reading (5–495) = Total (10–990)
-          </div>
-        </footer>
       </main>
 
       {/* Toast Notification (Bottom right) */}
