@@ -1,25 +1,17 @@
 import React from 'react';
-import { Download, Printer, RotateCcw, Search, UserPlus, Users, BookOpen, BarChart3, Headphones, Camera } from 'lucide-react';
+import { Search, Users, BookOpen, BarChart3, Headphones } from 'lucide-react';
 import { StudentWithRank } from '../types/student';
 
 interface HeaderProps {
   students: StudentWithRank[];
   searchQuery: string;
   onSearchChange: (query: string) => void;
-  onOpenResetModal: () => void;
-  onOpenAddModal: () => void;
-  onOpenBatchPhotosModal: () => void;
-  onExportCSV: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   students,
   searchQuery,
   onSearchChange,
-  onOpenResetModal,
-  onOpenAddModal,
-  onOpenBatchPhotosModal,
-  onExportCSV,
 }) => {
   const studentCount = students.length;
 
@@ -38,77 +30,24 @@ export const Header: React.FC<HeaderProps> = ({
       ? Math.round(students.reduce((acc, s) => acc + s.readingConverted, 0) / studentCount)
       : 0;
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <header className="mb-6 space-y-4">
-      {/* Title & Primary Actions */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-4">
-        <div>
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded bg-blue-700 flex items-center justify-center text-white font-semibold text-xs tracking-wider shadow-xs">
-              ETS
-            </div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-[26px]">
-              TOEIC Student Ranking
-            </h1>
+      {/* Title Header */}
+      <div className="border-b border-slate-200 pb-4">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded bg-blue-700 flex items-center justify-center text-white font-semibold text-xs tracking-wider shadow-xs">
+            ETS
           </div>
-          <p className="mt-1 text-xs sm:text-sm text-slate-500 font-medium">
-            Previous Examination Results &bull; Official Practice Diagnostic Test
-          </p>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-[26px]">
+            TOEIC Student Ranking
+          </h1>
         </div>
-
-        {/* Global Toolbar buttons (hidden during print) */}
-        <div className="flex flex-wrap items-center gap-2 no-print">
-          <button
-            onClick={onOpenBatchPhotosModal}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-200 rounded-md shadow-2xs hover:bg-blue-100 hover:text-blue-800 active:bg-blue-200 transition-colors focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
-            title="Batch upload and match student photos by filename"
-          >
-            <Camera className="w-3.5 h-3.5 text-blue-600" />
-            <span>Upload Photos</span>
-          </button>
-
-          <button
-            onClick={onExportCSV}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-md shadow-2xs hover:bg-slate-50 hover:text-slate-900 active:bg-slate-100 transition-colors focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
-            title="Export full leaderboard as CSV"
-          >
-            <Download className="w-3.5 h-3.5 text-slate-600" />
-            <span>Export CSV</span>
-          </button>
-
-          <button
-            onClick={handlePrint}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-md shadow-2xs hover:bg-slate-50 hover:text-slate-900 active:bg-slate-100 transition-colors focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
-            title="Print or save as PDF"
-          >
-            <Printer className="w-3.5 h-3.5 text-slate-600" />
-            <span>Print / PDF</span>
-          </button>
-
-          <button
-            onClick={onOpenResetModal}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 bg-white border border-slate-300 rounded-md shadow-2xs hover:bg-red-50 hover:text-red-700 hover:border-red-200 active:bg-red-100 transition-colors focus:outline-hidden"
-            title="Reset to initial 19 student records"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>Reset Data</span>
-          </button>
-
-          <button
-            onClick={onOpenAddModal}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-blue-700 rounded-md shadow-2xs hover:bg-blue-800 active:bg-blue-900 transition-colors focus:outline-hidden focus:ring-2 focus:ring-blue-500/30"
-          >
-            <UserPlus className="w-3.5 h-3.5" />
-            <span>Add Student</span>
-          </button>
-        </div>
+        <p className="mt-1 text-xs sm:text-sm text-slate-500 font-medium">
+          Previous Examination Results &bull; Official Practice Diagnostic Test
+        </p>
       </div>
 
-      {/* Summary KPI Strip - Removed Top Rank and Highest Score as requested */}
+      {/* Summary KPI Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white border border-slate-200 rounded-lg p-3 shadow-2xs">
         {/* Total Students */}
         <div className="flex items-center gap-3 px-2">
@@ -178,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Search & Filter Bar (hidden in print) */}
+      {/* Search & Filter Bar */}
       <div className="flex items-center justify-between gap-3 no-print">
         <div className="relative w-full max-w-xs">
           <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
