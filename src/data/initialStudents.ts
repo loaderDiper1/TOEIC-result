@@ -26,8 +26,8 @@ export const INITIAL_STUDENTS: StudentRecord[] = [
     name: 'Steven',
     listeningRaw: 87,
     listeningConverted: 460,
-    readingRaw: 85,
-    readingConverted: 395,
+    readingRaw: 84,
+    readingConverted: 390,
   },
   {
     id: 'student-4',
