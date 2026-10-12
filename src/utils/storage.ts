@@ -1,7 +1,7 @@
 import { StudentRecord } from '../types/student';
 import { INITIAL_STUDENTS } from '../data/initialStudents';
 
-const STUDENTS_STORAGE_KEY = 'toeic_student_records_v1';
+const STUDENTS_STORAGE_KEY = 'toeic_student_records_v3';
 const DB_NAME = 'toeic_student_dashboard_db';
 const DB_VERSION = 1;
 const PHOTO_STORE = 'student_photos';
@@ -33,15 +33,16 @@ function openDB(): Promise<IDBDatabase> {
 }
 
 /**
- * Load student records from localStorage, falling back to INITIAL_STUDENTS
+ * Load student records from localStorage, falling back to INITIAL_STUDENTS.
  */
 export function loadStoredStudents(): StudentRecord[] {
   try {
     const raw = localStorage.getItem(STUDENTS_STORAGE_KEY);
-    if (!raw) return INITIAL_STUDENTS;
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed;
+    if (raw) {
+      const parsed: StudentRecord[] = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
     }
   } catch (err) {
     console.warn('Failed to read students from localStorage:', err);

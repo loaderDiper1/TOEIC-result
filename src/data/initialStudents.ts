@@ -74,8 +74,8 @@ export const INITIAL_STUDENTS: StudentRecord[] = [
     name: 'Alice',
     listeningRaw: 69,
     listeningConverted: 350,
-    readingRaw: 62,
-    readingConverted: 260,
+    readingRaw: 63,
+    readingConverted: 270,
   },
   {
     id: 'student-10',
@@ -114,8 +114,8 @@ export const INITIAL_STUDENTS: StudentRecord[] = [
     name: 'Daniel Zhang',
     listeningRaw: 55,
     listeningConverted: 260,
-    readingRaw: 39,
-    readingConverted: 105,
+    readingRaw: 40,
+    readingConverted: 115,
   },
   {
     id: 'student-15',
@@ -154,7 +154,7 @@ export const INITIAL_STUDENTS: StudentRecord[] = [
     name: 'Billy',
     listeningRaw: 41,
     listeningConverted: 160,
-    readingRaw: 34,
-    readingConverted: 75,
+    readingRaw: 35,
+    readingConverted: 80,
   },
 ];

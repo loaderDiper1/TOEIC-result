@@ -238,7 +238,7 @@ export const RankingTable: React.FC<RankingTableProps> = ({
                               className="text-[9px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-1 rounded-xs"
                               title="Tied Rank"
                             >
-                              T
+                              (T)
                             </span>
                           )}
                         </div>
